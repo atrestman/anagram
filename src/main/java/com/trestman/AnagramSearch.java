@@ -4,6 +4,12 @@ import java.util.*;
 
 public class AnagramSearch {
 
+    /**
+     * Normilize the input string by sorting it alphabetically
+     *
+     * @param input
+     * @return
+     */
     static public String sortAlphabetically(String input) {
         char[] charArray = input.toCharArray();
         Arrays.sort(charArray);
@@ -11,6 +17,12 @@ public class AnagramSearch {
         return sortedString;
     }
 
+    /**
+     * Populate anagram words corpus/dictionary from the supplied words
+     *
+     * @param words
+     * @return
+     */
     static public Map<String, HashSet<String>> getAnagramCorpus(List<String> words) {
         Map<String, HashSet<String>> wordsCorpus = new HashMap<>();
         for(String word: words) {
@@ -28,7 +40,13 @@ public class AnagramSearch {
         return wordsCorpus;
     }
 
-    static public void printAnagrams(Map<String, HashSet<String>> wordsCorpus) {
+    /**
+     * Print anagrams if their number if more than one found per the assignment
+     * specification
+     *
+     * @param wordsCorpus
+     */
+    static private void printAnagrams(Map<String, HashSet<String>> wordsCorpus) {
 
         for (String normalizedWord: wordsCorpus.keySet()) {
             for (String anagram: wordsCorpus.get(normalizedWord)) {
@@ -41,6 +59,11 @@ public class AnagramSearch {
         }
     }
 
+    /**
+     * Search for anagrams in the supplied input and print them into stdio
+     *
+     * @param lineOfText
+     */
     static public void searchAndPrint(String lineOfText){
         String[] words = lineOfText.split("\\s+");
         Map<String, HashSet<String>> anagramCorpus = getAnagramCorpus(Arrays.asList(words));
