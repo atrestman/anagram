@@ -2,8 +2,9 @@ package com.trestman;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SearchPairs {
 
@@ -14,8 +15,8 @@ public class SearchPairs {
      * @param sum
      * @return
      */
-    static public List<Pair<Integer, Integer>> search(Integer[] integers, Integer sum) {
-        List<Pair<Integer, Integer>> pairs = new ArrayList<>();
+    static public Set<Pair<Integer, Integer>> search(Integer[] integers, Integer sum) {
+        Set<Pair<Integer, Integer>> pairs = new HashSet<>();
         for (int i = 0; i < integers.length; i++) {
             for (int j = i+1; j < integers.length; j++) {
                 if (integers[i] + integers[j] == sum) {
@@ -32,7 +33,7 @@ public class SearchPairs {
      *
      * @param pairs
      */
-    static private void printPairs(List<Pair<Integer, Integer>> pairs) {
+    static private void printPairs(Set<Pair<Integer, Integer>> pairs) {
         for (Pair<Integer, Integer> pair: pairs) {
             System.out.printf("{%d,%d}, ", pair.getKey(), pair.getValue());
         }
@@ -46,7 +47,7 @@ public class SearchPairs {
      * @param sum
      */
     static public void searchAndPrintPairs(Integer[] integers, Integer sum) {
-        List<Pair<Integer, Integer>> pairs = search(integers, sum);
+        Set<Pair<Integer, Integer>> pairs = search(integers, sum);
         printPairs(pairs);
 
     }
