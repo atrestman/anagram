@@ -5,7 +5,7 @@ import java.util.*;
 public class AnagramSearch {
 
     /**
-     * Normilize the input string by sorting it alphabetically
+     * Normalize the input string by sorting it alphabetically
      *
      * @param input
      * @return
